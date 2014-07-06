@@ -1,0 +1,5 @@
+<li class="list_info"> 
+    <a target="_blank" href="<?php echo $this->createUrl('/person/index', array('user_id'=>$data->user_id)); ?>" class="img_face"><img src="<?php echo WebUser::getUcAvatarSrc($data->user_id, 'small'); ?>" class="namecard js_processed"></a>
+    <p><span class="r cgray"><?php echo UtilHelper::sgmdate('Y年j月n日', strtotime($data->created)); ?></span><span class="red"><a target="_blank" href="<?php echo $this->createUrl('/person/index', array('user_id'=>$data->user_id)); ?>"><?php echo $data->username ?></a></span></p>
+    <p><?php echo nl2br($data->ParsedContent) ?> <span style="padding-left:10px;" class="red"><a href="javascript:;" onclick="replyInEditbox('<?php echo $data->username ?>');return false;">回复</a></span> <!--<span tid="<?php echo $data->id ?>" class="r red cursor spam_del none">删除</span>  --> </p>
+</li>

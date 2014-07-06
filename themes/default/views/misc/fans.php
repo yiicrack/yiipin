@@ -1,0 +1,34 @@
+<?php 
+$this->pageTitle = "关注".($this->user->id == Yii::app()->user->id ? '我':$this->user->username)."的人";
+$this->keywords = '';
+?>
+
+<div class="container_12" id="main">
+
+	<div style="_overflow: hidden;" class="grid_9">
+		<div class="box_shadow p13 mt14">
+			<div id="ur_follow_warp">
+				<div id="follow_name">关注<?php echo $this->user->id == Yii::app()->user->id ? '我':$this->user->username;?>的人 (<?php echo $this->user->followCount; ?>)</div>
+				<div style="clear: both;"></div>
+
+				<?php $this->widget('zii.widgets.CListView', array(
+                        'dataProvider'=>$dataProvider,
+                        'ajaxUpdate'=>false,
+              			'cssFile' =>false,
+                        'itemView'=>'_fans_listitem',
+        				'pager'=>array('class'=>'CLinkPager','maxButtonCount'=>6, 'header'=>'', 'cssFile'=>false),
+                        'template'=>'{items}<div style="clear: both;"></div><div class="c"><div id="pageNav">{pager}</div></div>',
+                    ));
+?>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<div class="pinnable grid_3 omega">
+		<?php $this->renderPartial('/person/_sidebar');?>
+		<div class="mt10"></div>
+	</div>
+	<div class="clear"></div>
+</div>

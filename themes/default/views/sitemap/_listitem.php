@@ -1,0 +1,1 @@
+<li><?php echo CHtml::link($data->goods->name, array('/share/view', 'id'=>$data->id), array('target'=>'_blank')); ?></li>
